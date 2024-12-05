@@ -1,8 +1,9 @@
 //
 //  ViewController.swift
-//  DynamicCollectionView
 //
 //  Created by User on 12/7/24.
+//  miniary
+//
 //
 
 import UIKit
@@ -137,3 +138,5 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         return 30 // 줄 간격
     }
 }
+
+
