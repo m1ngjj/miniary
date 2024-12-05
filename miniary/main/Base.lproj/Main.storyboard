@@ -46,11 +46,29 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="6bd-eS-JXK">
-                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nDb-Av-Gn9">
-                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="😩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcK-j9-yNg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="35Z-mn-LIa"/>
+                                                        <constraint firstAttribute="height" constant="40" id="h6H-HC-3WM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PcK-j9-yNg" firstAttribute="top" secondItem="nDb-Av-Gn9" secondAttribute="top" id="Ebd-f3-t9V"/>
+                                                <constraint firstItem="PcK-j9-yNg" firstAttribute="leading" secondItem="nDb-Av-Gn9" secondAttribute="leading" id="TIb-g7-aCG"/>
+                                                <constraint firstAttribute="bottom" secondItem="PcK-j9-yNg" secondAttribute="bottom" id="jZ8-4R-c5A"/>
+                                                <constraint firstAttribute="trailing" secondItem="PcK-j9-yNg" secondAttribute="trailing" id="oYb-ko-2fq"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
                                 </cells>
