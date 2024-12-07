@@ -13,6 +13,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     let daysInWeek = 7
     var daysArray: [String] = []
+    var currentDate = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,36 +38,64 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.navigationController?.pushViewController(addViewController, animated: true)
         }
     }
+    
+    // MARK: - 달력
+    
+    @IBAction func pastMonthBtn(_ sender: Any) {
+        print("111pastMonthBtn clicked!")
+        
+        currentDate = Calendar.current.date(byAdding: .month, value: -1, to: currentDate) ?? currentDate
+        
+        print("111Updated Date: \(currentDate)")
 
+        updateCalendar()
+    }
+    
+    @IBAction func nextMonthBtn(_ sender: Any) {
+        print("111nextMonthBtn clicked!")
+
+        currentDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) ?? currentDate
+        
+        print("111Updated Date: \(currentDate)")
+
+        updateCalendar()
+    }
+    
+    func updateCalendar() {
+        print("111Updating calendar for new date: \(currentDate)")
+        daysArray = generateDaysForCurrentMonth()
+        collectionView.reloadData()
+        print("111Reloaded Collection View with days count: \(daysArray.count)")
+    }
+    
     @IBOutlet weak var monthLabel: UILabel!
 
     // 현재 월의 날짜 배열 생성
     func generateDaysForCurrentMonth() -> [String] {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM"
-        let currentMonth = dateFormatter.string(from: Date())
+        dateFormatter.dateFormat = "MMMM yyyy"
+        let currentMonth = dateFormatter.string(from: currentDate)
         monthLabel.text = currentMonth
 
+        print("Current Month: \(currentMonth)")
+
         let calendar = Calendar.current
-        let date = Date()
-        let range = calendar.range(of: .day, in: .month, for: date)!
+        let range = calendar.range(of: .day, in: .month, for: currentDate)!
 
         let numDays = range.count
         var days = [String]()
 
-        // 앞부분의 공백을 위해 현재 월의 첫 번째 요일 계산
-        let firstWeekday = calendar.component(.weekday, from: calendar.date(from: calendar.dateComponents([.year, .month], from: date))!)
+        let firstWeekday = calendar.component(.weekday, from: calendar.date(from: calendar.dateComponents([.year, .month], from: currentDate))!)
 
-        // 빈 칸 추가 (1일 전에 해당하는 빈 칸)
         for _ in 1..<firstWeekday {
             days.append("")
         }
 
-        // 1일부터 월의 마지막 날까지 추가
         for day in 1...numDays {
             days.append("\(day)")
         }
 
+        print("Generated Days: \(days)")
         return days
     }
 
