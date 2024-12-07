@@ -78,7 +78,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
-        cell.emojiLabel.text = daysArray[indexPath.item]
+        cell.dateLabel.text = daysArray[indexPath.item]
+        cell.emojiLabel.text = "😐"
         return cell
     }
 
