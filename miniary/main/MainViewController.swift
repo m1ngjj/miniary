@@ -105,6 +105,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1 // 줄 간격
+        return 30 // 줄 간격
     }
 }
